@@ -1,5 +1,5 @@
 # 🎓 NVIDIA Certified Associate – AI Infrastructure & Operations (NCA-AIIO)
-Complete study notes, concepts for the **NCA-AIIO Associate Certification**.
+Complete study notes and concepts from Muhammad Waqas for the **NCA-AIIO Associate Certification**.
 
 
 

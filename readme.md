@@ -5158,23 +5158,342 @@ It provides:
 
 ---
 
-### 🔹 3.0 Typical Deployment Flow  
-
-# Install DCGM package on each GPU-host node
-sudo apt install datacenter-gpu-manager   # (example for Ubuntu)
-
-# Start DCGM service
-sudo systemctl enable --now nvidia-dcgm
-
-# Use CLI to list GPUs
-dcgmi discovery -l
-
-# Run diagnostics / health check
-dcgmi diag -r 2   # run level 2 diagnostic
+# NETWORKING
 
 ---
 
+## 🔗 NVIDIA GPUDirect  
+High-Performance Direct Data Paths Between GPU, Storage, and Network  
 
+---
+
+### 🔹 1.0 What is GPUDirect  
+GPUDirect is a suite of NVIDIA technologies that enable high-bandwidth, low-latency data movement by **bypassing CPU and system memory**.  
+It supports direct data paths for GPU-to-GPU, network, and storage interactions — ideal for large-scale AI, HPC, and data analytics workloads.
+
+Key components include:  
+- Peer-to-Peer (P2P) GPU memory transfers  
+- GPUDirect RDMA (Remote Direct Memory Access)  
+- GPUDirect Storage (direct GPU ↔ NVMe / NVMe-oF)  
+- GPUDirect for Video (optimized video I/O)  
+
+---
+
+### 🔹 2.0 Why It Matters  
+- **Reduced latency** — data moves straight to/from GPU memory without extra copies.  
+- **Higher throughput** — more direct data paths mean better use of interconnects, PCI-Express, NVSwitch, etc.  
+- **Lower CPU & system memory overhead** — frees up CPU and host memory for other tasks.  
+- **Better scalability across nodes** — especially in cluster/distributed training or data-ingest scenarios.  
+
+---
+
+### 🔹 3.0 Key Technologies  
+| Technology                  | Use-Case Description                                    |
+|----------------------------|--------------------------------------------------------|
+| GPU P2P                     | Direct transfers between GPUs in the same system.     |
+| GPUDirect RDMA             | Network/storage device ↔ GPU memory across nodes.     |
+| GPUDirect Storage          | NVMe/NVMe-oF ↔ GPU memory, bypassing host memory.     |
+| GPUDirect for Video        | Frame-based I/O devices directly into/from GPU memory.|
+
+---
+
+### 🔹 4.0 Typical Deployment Flow  
+
+# Kernel / driver configuration to enable RDMA memory windows
+# Register GPU memory for RDMA access
+# Use MPI / RDMA library to pass GPU pointers directly
+# For storage: install GDS library, configure NVMe driver bypass path
+
+
+---
+
+## 🌐 NVIDIA Ethernet Networking Solutions  
+End-to-end high-performance Ethernet for AI, cloud, storage and enterprise data centers  
+
+---
+
+### 🔹 1.0 What It Covers  
+NVIDIA’s Ethernet networking platform delivers a full stack of technologies from server NICs to top-of-rack switches and cables/transceivers, optimized for modern workloads including AI, HPC, storage and cloud infrastructure.
+
+The platform spans:  
+- Ethernet Network Interface Cards (NICs) and SuperNICs  
+- Ethernet switches (Spectrum family)  
+- High-performance cables and optics  
+- Software stack and orchestration for scale  
+
+---
+
+### 🔹 2.0 Key Benefits  
+- Ultra-high throughput and low latency across 10 Gb/s up to 800 Gb/s+ options.  
+- Built for scale: GPU-to-GPU, rack-to-rack, site-to-site topologies.  
+- Efficient hardware + software co-design to accelerate AI and data pipelines.  
+- Consolidated network fabric supporting compute, storage, networking traffic.  
+- Mature ecosystem — plug-and-play compatibility via standard Ethernet and advanced features.  
+
+---
+
+### 🔹 3.0 Major Product Components  
+| Category                           | Description |
+|-----------------------------------|-------------|
+| **Ethernet Adapters / NICs**      | Server-side network cards, including multi-port 10/25/50/100/200/400 Gb/s speeds. |
+| **SuperNICs / Accelerated NICs**  | Offload networking functions, enable GPU-to-GPU network traffic optimization, ideal for large-scale AI. |
+| **Ethernet Switches (Spectrum)**  | High-radix, high-bandwidth switches supporting up to 800 Gb/s+ workloads for cloud & AI fabrics. |
+| **Cables & Transceivers (LinkX)** | Certified optics and cables, short-reach and long-reach, designed for data center interconnects. |
+
+---
+
+### 🔹 4.0 Deployment Use Cases  
+- Hyperscale AI clusters connecting GPU racks with terabit-class bandwidth.  
+- Enterprise data centers consolidating storage, compute and network on a unified high-speed fabric.  
+- Telecommunication and 5G infrastructure requiring high throughput and ultra-low latency.  
+- Data-intensive workloads (e.g., big data analytics, real-time inference) where network becomes bottleneck.
+
+---
+
+### 🔹 5.0 Best Practices  
+- Align NIC and switch port speeds (e.g., 200/400 Gb/s) to avoid oversubscription.  
+- Use SuperNICs and offload features when GPU-to-GPU or GPU-to-storage traffic dominates.  
+- Optimize cabling and optics for latency, reach and power budget (LinkX recommended).  
+- Monitor and tune network fabric congestion, buffer utilization and link health.  
+- Build in scalability – design for future higher speeds and densities (e.g., 800 Gb/s and beyond).  
+
+---
+
+### 🔹 6.0 Why Use NVIDIA Ethernet Networking  
+For organizations building modern AI, HPC or data-centric infrastructure, this networking platform offers performance, flexibility and future-ready scalability unlike legacy network stacks. It enables tight coupling of compute, storage and network—critical for AI workflow throughput and latency-sensitive tasks.
+
+---
+
+## 🧠 Data Processing Unit (DPU)  
+The Third Pillar of Modern Infrastructure — Alongside CPU & GPU  
+
+---
+
+### 🔹 1.0 What is a DPU  
+A DPU is a purpose-built System-on-a-Chip (SoC) designed to **move, process and secure data** as it flows through the data center.  
+It complements the CPU (general-purpose compute) and GPU (accelerated compute) by focusing on data-path operations: networking, storage, security, telemetry and infrastructure services.
+
+Core elements of a DPU:  
+- A software-programmable multi-core CPU (often based on ARM)  
+- A high-performance network interface / SmartNIC  
+- Programmable acceleration engines for data-path tasks  
+
+---
+
+### 🔹 2.0 Why It Matters  
+- Offloads infrastructure functions from the host CPU, freeing CPU cycles for application workloads  
+- Handles data at line-rate: parsing packets, streaming storage, orchestrating flows  
+- Enables isolation, secure multi-tenant operation and flexible infrastructure services  
+- Builds a “data-centric” infrastructure model: compute, storage, and data fabric all deeply integrated  
+
+---
+
+### 🔹 3.0 DPU vs CPU vs GPU  
+| Processor | Primary Focus              | Typical Workload                              |
+|-----------|-----------------------------|-----------------------------------------------|
+| CPU       | General-purpose compute     | OS, middleware, business apps                 |
+| GPU       | Parallel accelerated compute| AI training, simulation, graphics             |
+| DPU       | Data-path, infrastructure   | Networking, storage streaming, security offload|
+
+With the DPU, the data center architecture evolves: the CPU runs apps, the GPU accelerates compute, and the DPU enables the data fabric.
+
+---
+
+### 🔹 4.0 Typical Functions & Use-Cases  
+- Packet parsing, forwarding and switching at high speed  
+- NVMe-over-Fabric and direct storage-to-GPU data paths  
+- Zero-trust security enforcement, crypto offload, traffic isolation  
+- Virtualization support (SR-IOV, OVS offload, guest isolation)  
+- Telemetry, monitoring and health services for infrastructure  
+- Accelerated network/storage services for AI/ML, cloud, telco  
+
+---
+
+### 🔹 5.0 Deployment Considerations  
+- Ensure the host system has the required SmartNIC / DPU card form-factor (PCIe, OCP-), drivers and firmware  
+- Confirm the data-path supports the required line-rates (100 GbE, 200 GbE, 400 GbE or more)  
+- Integrate DPU into orchestration stack: host OS, container/k8s, hypervisor must recognise and manage it  
+- Define workloads to offload: what infrastructure services go to DPU vs host CPU  
+- Monitor DPU health, firmware, telemetry just like any critical infrastructure component  
+
+---
+
+### 🔹 6.0 Why Use DPU in Your Stack  
+For modern workloads—AI, cloud, high-scale storage, telco—the bottleneck is increasingly **data movement, not compute**.  
+A DPU helps you:  
+- Improve throughput by reducing host CPU overhead  
+- Reduce latency for data-path operations  
+- Improve isolation and security for multi-tenant environments  
+- Architect a more modular, efficient data-center fabric  
+
+---
+
+## 🏗️ Cloud-Scale Architecture with DPUs  
+Building the Next-Generation Cloud Fabric with DPUs  
+
+---
+
+### 🔹 1.0 The Challenge of Scale  
+As networks and storage fabrics grow in size and speed, traditional server CPUs spend an increasing portion of their time handling infrastructure tasks — packet parsing, tunnelling (VXLAN/GENEVE), overlay networks, RDMA, virtual storage access, hypervisor switching, and more.  
+This overhead grows with larger cloud environments, multi-tenant platforms, AI-cluster fabrics, and east-west traffic. When CPUs are consumed by data-movement and I/O tasks, application processing suffers.
+
+---
+
+### 🔹 2.0 Why DPUs Matter at Cloud Scale  
+DPUs shift infrastructure functions — networking, storage virtualization, security, telemetry — off the host CPU and into a dedicated, programmable accelerator domain.  
+Key benefits:  
+- Freed CPU cycles for application workloads and differentiate-value compute  
+- Hardware-accelerated data-path handling (encapsulation, RDMA, overlay networks)  
+- Security and isolation via separate domain, reducing attack surface and isolating tenants  
+- Network and storage services that look “local” to VMs and containers — simplifying cloud-native architectures  
+
+---
+
+### 🔹 3.0 What a Cloud-Scale DPU Architecture Looks Like  
+| Element                 | Role in the Fabric                               |
+|-------------------------|-------------------------------------------------|
+| SmartNIC/DPU card       | Offload of packet processing, steering, encryption, RDMA |
+| Programmable Arm cores  | Control-plane logic for virtual switching, policy enforcement |
+| Storage/Network mapping | Virtualised NVMe-oF, virtualised storage pools, GPU-local storage access |
+| Overlay/Underlay support| VXLAN/GENEVE offload, SR-IOV, OVS offload         |
+
+DPUs allow virtual resources to appear local, reduce CPU overhead, and support multi-tenant fabrics at massive scale.
+
+---
+
+### 🔹 4.0 Key Use Cases in Cloud Environments  
+- Multi-tenant clouds where one physical server must safely serve many tenants with isolation and high throughput.  
+- AI/hyperscale GPU clusters where heavy data movement (storage → GPU, inter-node) must not be bottlenecked by CPU or system memory.  
+- Software-defined storage and hyper-converged infrastructure where NVMe-oF and virtualised storage services are required at scale.  
+- Overlay networks and east-west traffic heavy environments (cloud, 5G, telco) where tunnel encap/decap and high-speed packet steering are essential.
+
+---
+
+### 🔹 5.0 Deployment Considerations  
+- The host architecture must support PCIe or equivalent high-bandwidth link from DPU to host CPU/GPU and network/storage fabrics.  
+- The DPU must provide both a programmable control plane and high-performance data-plane (hardware accelerators) for offload.  
+- Software stack must integrate DPU functions (network overlay offload, virtual storage, security enforcement) with orchestration/hypervisor/container platforms.  
+- Monitoring, telemetry, and fault isolation must be extended to the DPU domain (health of offload engines, link performance, firmware updates).  
+- The network/storage topology needs to be redesigned: consider GPU-local storage access, GPU-to-GPU network flows, and tenant isolation at network/storage layer.
+
+---
+
+### 🔹 6.0 Benefits Summary  
+With DPU-based infrastructure, cloud architects can build fabrics where:  
+- Infrastructure services run safely and at line rate without consuming CPU cycles  
+- Tenant isolation and security are enforced at the data-path level  
+- Data movement is optimized — storage → compute → network flows execute without bottleneck  
+- The architecture scales in a modular way: CPUs, GPUs, DPUs work together as distinct pillars  
+
+---
+
+### 🔹 7.0 Quick Summary  
+For cloud-scale environments and next-generation data centres, DPUs offer a foundational building block to separate compute from data-path services. They enable higher throughput, lower latency, better isolation, and more efficient resource utilisation — making them critical for AI, multi-tenant cloud, and large-scale virtualised storage environments.
+
+
+---
+
+## 🧩 NVIDIA BlueField Data Processing Unit (DPU)  
+High-Performance, Programmable Infrastructure Compute for Networking, Storage & Security  
+
+---
+
+### 🔹 1.0 What is BlueField DPU  
+The BlueField DPU is a purpose-built processor combining high-speed networking, multi-core compute and hardware acceleration in a single PCIe or OCP card form factor.  
+Designed for modern data-centres, cloud-scale AI clusters, and multi-tenant infrastructure, BlueField offloads networking, storage and security services from the host CPU to deliver line-rate performance and better isolation.
+
+---
+
+### 🔹 2.0 Key Product Highlights  
+- Up to **400 Gb/s** throughput in BlueField-3, and roadmap up to **800 Gb/s+** in next gen.  
+- Hardware accelerated capabilities: packet processing, storage protocol offload (NVMe-oF), RDMA, overlay networks, security engines.  
+- Full software programmability: control-plane ARM cores, data-plane accelerators, open APIs for orchestration and telemetry.  
+- Enterprise multit-tenant readiness: zero-trust infrastructure services, isolated domains, multi-job performance determinism.  
+
+---
+
+### 🔹 3.0 Use Cases & Workloads  
+- AI / HPC clusters: accelerate GPU-to-GPU communication, storage → GPU data-paths, inter-node networking.  
+- Cloud / Telco infrastructure: multi-tenant services, 5G/edge networking, virtualised network functions (VNFs).  
+- Storage fabrics: NVMe-oF offload, direct storage to accelerator memory paths, high throughput real-time pipelines.  
+- Security & infrastructure services: firewalling, encryption, telemetry, container/hypervisor networking offload.  
+
+---
+
+### 🔹 4.0 Deployment Considerations  
+- The host server must have an available DPU card slot (PCIe or OCP) and support required link speeds.  
+- The network and storage fabrics must align with the DPU’s line-rate capability (e.g., 100/200/400/800 Gb/s).  
+- Software stack: orchestration (Kubernetes, OpenStack, VMware) must integrate DPU control-plane and API.  
+- Monitoring & telemetry of DPU health, firmware, link performance, offload statistics should be included in your infrastructure monitoring.  
+- Architecture must define what workloads remain on the host CPU/CPU-attached NIC vs what is offloaded to the DPU.  
+
+---
+
+### 🔹 5.0 Why Include BlueField in Your Stack  
+In modern data-centric environments, data movement, connectivity, and infrastructure services become the bottleneck, not just compute.  
+By deploying BlueField DPU you:  
+- Free up host CPU cycles for application compute instead of network/storage/service overhead.  
+- Achieve true line-rate data-path performance across networking, storage and compute domains.  
+- Deliver stronger isolation and performance consistency in multi-tenant or shared environments.  
+- Enable future-proof scale: as link speeds, GPU/accelerator counts and data demands increase, DPU offload becomes essential.  
+
+---
+
+## 🚀 NVIDIA DOCA Software Framework  
+Enabling Programmability and Acceleration for DPUs & SuperNICs  
+
+---
+
+### 🔹 1.0 What is DOCA  
+DOCA is the software stack by NVIDIA that enables developers to **build, deploy and manage accelerated services** on infrastructure-processors such as DPUs and SuperNICs.  
+It provides drivers, libraries, APIs and runtime frameworks to offload networking, storage, security and telemetry workloads from the host CPU.  
+
+---
+
+### 🔹 2.0 Core Capabilities  
+- Offloading infrastructure services: network packet processing, storage protocol offload, encryption, telemetry.  
+- APIs and SDKs for building custom data-path applications (e.g., RDMA, flow tracking, compression).  
+- Runtime and orchestration for deploying containerised services on DPU and SuperNIC platforms.  
+- Support for multi-generational hardware: ensures apps built today can run on future DPU platforms.  
+
+---
+
+### 🔹 3.0 Architecture Overview  
+The DOCA stack typically comprises:  
+- **DOCA-Host**: Software installed on the host server, provides drivers and tools for DPU/SuperNIC devices.  
+- **DPU / SuperNIC Runtime (BF-Bundle)**: Software installed on the DPU device itself (ARM cores + firmware) providing a service domain isolated from the host workload domain.  
+- **DOCA SDK & Libraries**: APIs for memory management, device enumeration, task/event model, processing pipelines, hardware abstraction.  
+
+---
+
+### 🔹 4.0 Key Libraries & Workflows  
+| Library / Component              | Use-Case                                            |
+|---------------------------------|-----------------------------------------------------|
+| Memory & Buffers                | Register memory, zero-copy buffers for hardware     |
+| Flow / Packet Processing        | Build pipelines for packet inspection, forwarding  |
+| RDMA & DMA                      | High-throughput, low-latency data movement          |
+| Crypto & Compression            | Inline security, data reduction offloads            |
+| Telemetry & Monitoring          | Capture hardware health, usage, offload stats       |
+
+---
+
+### 🔹 5.0 Deployment Considerations  
+- Ensure hardware supports DPU/SuperNIC and DOCA runtime.  
+- Align orchestration (Kubernetes, VMs, containers) to recognise DPU-domains.  
+- Isolate service domain (infrastructure) from workload domain (apps) — DOCA enables this segmentation.  
+- Monitor both host and DPU devices — offload does not eliminate need for health & performance logging.  
+- Build apps with hardware aware design: zero-copy, asynchronous task/event model, memory registration.  
+
+---
+
+### 🔹 6.0 Why Use DOCA  
+In modern data-centric infrastructure (AI, cloud, multi-tenant fabrics), the bottleneck is often **data-path processing**, not just compute. DOCA enables you to:  
+- Offload data-path tasks away from the CPU and free host resources for application logic.  
+- Build custom infrastructure services (networking, storage, security) at hardware speed.  
+- Achieve higher throughput, lower latency, and stronger isolation — essential for large-scale GPU clusters and cloud fabrics.  
+
+
+---
 
 
 

@@ -13,13 +13,11 @@ Complete study notes, concepts for the **NCA-AIIO Associate Certification**.
 **Questions:** ~50 multiple-choice  
 **Attempts Allowed:** Up to **5 attempts per 12-month period**  
 **Focus Areas:**  
-- AI Infrastructure  
-- Compute (GPUs, MIG, virtualisation)  
-- Storage & Data Pipelines  
-- Networking for AI  
-- NVIDIA Software Stack  
-- Operations (monitoring, troubleshooting, tuning)  
-- Security & Governance  
+- Accelerated computing use cases
+- AI, machine learning, and deep learning
+- GPU architecture
+- NVIDIA’s software suite
+- Infrastructure and operation considerations for adopting NVIDIA solutions 
 
 # 📘 Introduction to Artificial Intelligence (AI)
 

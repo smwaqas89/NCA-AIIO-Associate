@@ -1024,7 +1024,7 @@ Supports:
 ## 🔹 3.3 ONNX Runtime (TensorRT Execution Provider)  
 Runs ONNX models using TensorRT as the backend.
 
-**ONNX simple:** A universal format for AI models.
+**ONNX:** A universal format for AI models.
 
 ---
 
@@ -1697,7 +1697,7 @@ NVIDIA partners offer pre-validated solutions to reduce setup time and ensure pr
 
 ---
 
-# 🧩 NVIDIA Reference Architectures — Complete Notes (NCA-AIIO)
+# 🧩 NVIDIA Reference Architectures 
 
 NVIDIA reference architectures provide **blueprints for building high-performance AI data centers**.  
 These documents combine best practices, validated components, and proven designs to help organizations deploy AI systems faster, more reliably, and with predictable performance.
@@ -2407,7 +2407,7 @@ Benefits:
 ---
 
 
-# ☁️ NVIDIA AI Cloud Solutions — Complete Notes (NCA-AIIO)
+# ☁️ NVIDIA AI Cloud Solutions 
 
 The NVIDIA AI Platform is a full-stack, cloud-native ecosystem that lets enterprises build, customize, deploy, and scale AI across any environment — public cloud, private cloud, hybrid environments, and even at the edge.  
 This section explains every layer: infrastructure → software → services → AI foundations → AI Foundry → consumption models.
@@ -2881,7 +2881,7 @@ IT teams, data scientists, ML engineers, and business owners.
 
 ---
 
-# 🧩 Orchestration, Scheduling & MLOps — Complete Notes (NCA-AIIO)
+# 🧩 Orchestration, Scheduling & MLOps
 
 Modern AI systems depend on two major operational layers:
 
@@ -3097,8 +3097,6 @@ Together, these tools enable safe, multi-tenant, containerized AI workloads in H
 
 CUDA is NVIDIA’s platform that lets software use **GPUs (Graphics Processing Units)** for general-purpose computing, not just graphics.  
 In simple terms: CUDA is how we **turn GPUs into super-fast math engines** for AI, data science, and HPC.
-
-This section explains CUDA in detail but in simple language, so you can use it directly in your `README.md` for NCA-AIIO prep.
 
 ---
 
@@ -3424,9 +3422,7 @@ Here is how CUDA shows up in each phase:
 
 ---
 
-## 10. Summary — CUDA for NCA-AIIO
-
-For your README and exam:
+## 10. Summary — CUDA 
 
 - CUDA is the core **GPU computing platform** from NVIDIA.  
 - It provides:
@@ -3552,7 +3548,7 @@ Because of such needs, NVIDIA developed **NVIDIA Dynamo** as the next-gen infere
 ---
 
 
-# 🧠 NVIDIA GPU Cloud (NGC) — Complete Notes (NCA-AIIO)
+# 🧠 NVIDIA GPU Cloud (NGC) 
 
 The NVIDIA GPU Cloud (NGC) platform is a **unified catalog and environment** for GPU-accelerated AI, machine learning (ML), deep learning (DL), and high-performance computing (HPC).  
 It simplifies how enterprises and developers access optimized containers, pretrained models, Helm charts, and SDKs that are certified for NVIDIA GPUs.
@@ -3674,7 +3670,7 @@ NGC supports deployment on various platforms. Infrastructure teams must plan:
 
 ---
 
-# 🔄 Deep Learning: Training vs Inference — Detailed Notes (NCA-AIIO)
+# 🔄 Deep Learning: Training vs Inference 
 
 Understanding the difference between training and inference is essential for AI infrastructure, operations, and deployments.
 
@@ -3775,7 +3771,7 @@ In other words: a system built just for training won’t automatically work well
 
 ---
 
-# 🔄 Deep Learning: Training vs Inference — Detailed Notes (NCA-AIIO)
+# 🔄 Deep Learning: Training vs Inference 
 
 Understanding the difference between training and inference is essential for AI infrastructure, operations, and deployment.
 
@@ -3820,14 +3816,14 @@ Inference is the phase where the trained model is used to make **predictions** o
 
 ## 3. Key Differences: Training vs Inference
 
-| Dimension        | Training                                     | Inference                                     |
-|------------------|----------------------------------------------|-----------------------------------------------|
-| Purpose          | Learning from data, adjusting model weights  | Using model to generate predictions/outputs   |
-| Compute pattern  | Heavy compute, long duration                 | Lighter per request, but may be high volume   |
-| Latency concern  | Less sensitive (batch jobs)                  | Very sensitive (real-time responses)          |
-| Memory usage     | Very large (for weights, activations, gradients) | Smaller footprint (only forward pass + weights) |
+| Dimension        | Training                                                | Inference                                     |
+|------------------|----------------------------------------------           |-----------------------------------------------|
+| Purpose          | Learning from data, adjusting model weights             | Using model to generate predictions/outputs   |
+| Compute pattern  | Heavy compute, long duration                            | Lighter per request, but may be high volume   |
+| Latency concern  | Less sensitive (batch jobs)                             | Very sensitive (real-time responses)          |
+| Memory usage     | Very large (for weights, activations, gradients)        | Smaller footprint (only forward pass + weights) |
 | Infrastructure   | GPU clusters, high bandwidth storage, high network sync | Optimized serving systems, possibly edge or cloud GPU/CPU |
-| Optimization     | Focus on training time, distributed scale    | Focus on latency, throughput, model size, cost |
+| Optimization     | Focus on training time, distributed scale               | Focus on latency, throughput, model size, cost |
 
 ---
 
@@ -3874,7 +3870,7 @@ In short: A system built for training is **not** automatically optimized for inf
 
 ---
 
-# 🤖 Deep Reinforcement Learning for Robotics on GPUs — Detailed Notes (NCA-AIIO)
+# 🤖 Deep Reinforcement Learning for Robotics on GPUs
 
 This section explains how reinforcement learning (RL) combines with GPU acceleration to drive robotics innovation, and what infrastructure implications this has for AI operations and deployment.
 
@@ -3975,7 +3971,6 @@ For someone preparing for infrastructure/operations roles (NCA-AIIO), you should
 
 ---
 
-
 - Deep RL for robotics is dramatically accelerated by running the full pipeline on GPUs.  
 - Infrastructure for robotics RL must combine simulation, compute, and learning in a tightly optimized stack.  
 - For NCA-AIIO: you must be able to explain how GPU acceleration changes RL training, what infrastructure it demands, and what operational implications exist for robotics workloads.  
@@ -3983,7 +3978,7 @@ For someone preparing for infrastructure/operations roles (NCA-AIIO), you should
 
 ---
 
-# 🔍 Recommender Systems — Detailed Notes (NCA-AIIO)
+# 🔍 Recommender Systems
 
 This section covers what recommender systems are, how they work, why they matter, and the infrastructure required to support them — particularly on GPU-accelerated platforms.
 
@@ -4084,7 +4079,7 @@ NVIDIA mentions use of GPU-accelerated frameworks like RAPIDS and the Merlin app
 
 ---
 
-# 🤖 AI for Robotics — Detailed Notes (NCA-AIIO)
+# 🤖 AI for Robotics
 
 Robots are no longer just pre-programmed machines. They now *see*, *think*, *learn*, and *act* — and NVIDIA provides the hardware, software, and ecosystem to support this transformation. This section dives into what AI robotics means for infrastructure, what NVIDIA offers, and the operations/engineering implications.
 
@@ -4189,7 +4184,7 @@ AI for robotics is a rapidly growing field where autonomous machines use AI, sim
 
 ---
 
-# 🤖 NVIDIA Isaac Sim — Robotics Simulation & Synthetic Data Platform (NCA-AIIO)
+# 🤖 NVIDIA Isaac Sim — Robotics Simulation & Synthetic Data Platform
 
 NVIDIA Isaac Sim is a highly-capable simulation framework designed for developing, testing, and validating robotics systems in virtual environments.  
 It enables robotics teams to generate synthetic data, perform hardware-in-loop and software-in-loop testing, and conduct large-scale training of robot policies — all before physical deployment.
@@ -4284,7 +4279,7 @@ NVIDIA Isaac Sim is a simulation and synthetic data tool for robotics built on N
 
 ---
 
-# 📹 Intelligent Video Analytics (IVA) — Detailed Notes (NCA-AIIO)
+# 📹 Intelligent Video Analytics (IVA)
 
 Video analytics is the process of using AI to interpret video data — whats happening, who’s there, what events are occurring — and turning raw video into actionable insights. NVIDIA’s Metropolis platform provides a full solution for IVA from edge to cloud.  
 Source: NVIDIA blog on Intelligent Video Analytics Platform. 
@@ -4343,7 +4338,7 @@ The platform targets many industries. Some examples:
 
 ---
 
-## 4. Infrastructure & Operational Considerations (for NCA-AIIO)
+## 4. Infrastructure & Operational Considerations
 
 ### 4.1 Latency & Real-Time Processing
 - Many video analytics use-cases (traffic safety, intruder detection) require very low latency.  
@@ -4397,7 +4392,7 @@ Intelligent Video Analytics (IVA) via the NVIDIA Metropolis platform enables rea
 
 ---
 
-# 🧩 Multi-Instance GPU (MIG) — In-Depth Notes (NCA-AIIO)
+# 🧩 Multi-Instance GPU (MIG) — In-Depth Notes
 
 Modern GPU hardware is incredibly powerful, but many workloads—especially AI inference or smaller training jobs—don’t fully utilize that power.  
 MIG is an NVIDIA technology that lets a single physical GPU act like several smaller GPUs at once.  
@@ -4414,7 +4409,7 @@ This section explains what MIG is, how it works, why it matters and how it affec
 
 ---
 
-## 2. How MIG Works (Simplified)
+## 2. How MIG Works
 
 ### 2.1 Partitioning  
 - You enable MIG mode on the GPU (e.g., through `nvidia-smi` or NVML APIs).
@@ -4752,12 +4747,12 @@ When you consider deploying or supporting a system like GPT-3 (or similar models
 
 ## NVLink – NVIDIA High-Bandwidth GPU/Accelerator Interconnect
 
-### 1. What NVLink is (simple definition)  
+### 1. What NVLink is?  
 NVLink is NVIDIA’s proprietary high-bandwidth, low-latency interconnect technology enabling tight coupling of GPUs (and other accelerators) within a server and across racks. It supports full all-to-all communication fabrics at the rack scale.
 
 ---
 
-### 2. Why NVLink matters for AI infrastructure / NCA-AIIO  
+### 2. Why NVLink matters for AI infrastructure 
 In the context of large-scale AI infrastructure and the NCA-AIIO exam, NVLink is a critical piece because:  
 - It enables GPUs (and heterogeneous accelerators) to share data at speeds **much higher** than traditional PCIe-based links, which is essential when training large models or doing multi-GPU/multi-node distributed work.
 - It allows scaling from a server to a rack (and potentially beyond) with minimal communication bottlenecks — this supports the “scale-up” and “scale-out” strategies in AI data centres.  
@@ -4772,7 +4767,7 @@ In the context of large-scale AI infrastructure and the NCA-AIIO exam, NVLink is
 
 ---
 
-### 4. Key properties to remember (exam-style)  
+### 4. Key properties to remember 
 - **High bandwidth**: NVLink racks support multi-terabyte/second aggregate bandwidth fabrics. E.g., NVLink Switch 14.4 TB/s switching capacity. 
 - **Low latency & mesh/all-to-all fabric**: Unlike simpler bus designs (PCIe), NVLink supports direct connections and optimized topology for collective operations.  
 - **Scaler for large models**: Because large language models & HPC workloads demand better interconnect, NVLink is part of the infrastructure backbone.  
@@ -4833,8 +4828,8 @@ MPI (Message Passing Interface) is a standardized API for communicating data (vi
 
 ---
 
-### 2. Why it matters for AI infrastructure / NCA-AIIO  
-From an AI infrastructure perspective (covered in your NCA-AIIO preparation), this topic is important because:  
+### 2. Why it matters for AI infrastructure  
+From an AI infrastructure perspective, this topic is important because:  
 
 - Large-scale AI training often spans multiple nodes **and** multiple GPUs per node. You therefore need both GPU programming (e.g., CUDA) **and** distributed processing (MPI) to scale. 
 - The article highlights **CUDA-aware MPI** — MPI libraries that can send/receive GPU memory buffers directly (avoiding host staging) which improves efficiency. 
@@ -4850,7 +4845,7 @@ Key capabilities described:
 - **Scaling beyond one GPU/node**: When a problem is too large for one GPU or too slow on one node, you scale via multiple GPUs or multiple nodes + MPI.
 ---
 
-### 4. Key properties to remember (exam-style)  
+### 4. Key properties to remember 
 - **MPI + GPU = multi-node multi-GPU scaling**: If you hear “MPI used with GPU buffers” or “CUDA-aware MPI”, it’s this concept.  
 - **Avoids host staging**: Traditional MPI would move data from GPU → host memory → network → host memory → GPU. CUDA-aware MPI avoids the host copy step. 
 - **Requires software/hardware support**: To achieve full benefit you need GPU hardware, CUDA driver/runtime that supports unified address space (UVA), and MPI implementation that supports GPU pointers.
@@ -4858,7 +4853,7 @@ Key capabilities described:
 
 ---
 
-### 5. Example workflow / usage (conceptual)  
+### 5. Example workflow / usage  
 1. On each node you allocate one or more GPUs and launch an MPI process (or multiple ranks per node).  
 2. Each rank loads data, runs CUDA kernels on local GPU(s).  
 3. When inter-node communication is required (e.g., exchanging results/gradients), the MPI API is used. With CUDA-aware MPI you can pass device pointers directly.  
@@ -4869,14 +4864,14 @@ Key capabilities described:
 
 ## MLOps – Machine Learning Operations
 
-### 1. What it is (simple definition)  
+### 1. What it is?  
 MLOps is the discipline of running machine learning (ML) systems in production: building, deploying, operating, monitoring, and evolving ML models at scale.
 According to NVIDIA:  
 > “Machine learning operations, MLOps, are best practices for businesses to run AI successfully …” 
 
 ---
 
-### 2. Why MLOps matters for AI infrastructure / NCA-AIIO  
+### 2. Why MLOps matters for AI infrastructure
 From the perspective of AI infrastructure and operations (which your NCA-AIIO notes cover), MLOps is key because:  
 - Deploying and managing ML models isn’t just writing the model — it involves data pipelines, compute infrastructure (GPUs/TPUs), networks, storage, observability, and operations. 
 - When ML moves from proof-of-concept to production, infrastructure must support continuous training, versioning, monitoring, and reliability — all of which are core MLOps concerns. 
@@ -4921,12 +4916,12 @@ Key elements of the MLOps workflow include:
 
 ## Deep Learning Frameworks – NVIDIA Optimized DL Frameworks
 
-### 1. What this is (simple definition)  
+### 1. What this is?
 Deep-learning frameworks are high-level software libraries and APIs that provide building blocks (layers, loss functions, optimizers) for designing, training and validating deep neural networks. According to NVIDIA’s “Optimized Frameworks” guide, these widely-used DL frameworks (such as TensorFlow, PyTorch, Apache MXNet) rely on GPU-accelerated libraries (e.g., cuDNN, NCCL, DALI) to deliver high‐performance, multi-GPU training. 
 
 ---
 
-### 2. Why this matters for AI infrastructure / NCA-AIIO  
+### 2. Why this matters for AI infrastructure
 In the context of your exam and the AI infrastructure domain:  
 - Choosing and supporting the **right DL frameworks** is essential for scalable training clusters, multi-GPU / multi-node setups, and efficient infrastructure utilization.  
 - The infrastructure team must ensure that hardware (GPUs, interconnects, memory, storage) can support the framework’s requirements (e.g., framework demands for compute, GPU memory, and bandwidth).  
@@ -4943,7 +4938,7 @@ Key capabilities and features:
 
 ---
 
-### 4. Key properties to remember (exam-style)  
+### 4. Key properties to remember 
 - When you see **“GPU-optimized DL framework container”**, think of NVIDIA’s optimized DL framework offering.  
 - Remember that frameworks rely on GPU‐libraries (cuDNN, NCCL) and thus infrastructure must support these for full performance.  
 - Infrastructure roles: ensure compatibility of drivers, CUDA version, GPU model, interconnect topology, framework container version.  
@@ -4951,7 +4946,7 @@ Key capabilities and features:
 
 ---
 
-### 5. Example workflow / usage (conceptual)  
+### 5. Example workflow / usage  
 1. Infrastructure team ensures GPU servers (driver, CUDA version, network, storage) are ready.  
 2. Data scientists/developers choose a framework (e.g., PyTorch) and pull an NVIDIA-optimized container image.  
 3. Inside the container they build/training their model, using multiple GPUs or nodes if needed (leveraging framework’s distributed support).  
@@ -4980,7 +4975,7 @@ It spans from AI development (data science, model training) to production deploy
 
 ---
 
-### 2. Why it matters for AI infrastructure / NCA-AIIO  
+### 2. Why it matters for AI infrastructure
 From your NCA-AIIO and infrastructure preparation perspective:  
 - Enterprises are no longer just prototyping AI—they need production-ready software stacks. NVIDIA AI Enterprise gives that “enterprise grade” readiness: security, support, versioning, certification.  
 - Infrastructure must support not only hardware (GPUs, interconnects, storage) but also software that integrates frameworks, libraries, orchestration—this product shows the importance of that software layer.  

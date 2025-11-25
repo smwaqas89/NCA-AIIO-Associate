@@ -3093,7 +3093,7 @@ Together, these tools enable safe, multi-tenant, containerized AI workloads in H
 ---
 
 
-# 🟩 CUDA (Compute Unified Device Architecture) — Detailed Notes for README (NCA-AIIO)
+# 🟩 CUDA (Compute Unified Device Architecture)
 
 CUDA is NVIDIA’s platform that lets software use **GPUs (Graphics Processing Units)** for general-purpose computing, not just graphics.  
 In simple terms: CUDA is how we **turn GPUs into super-fast math engines** for AI, data science, and HPC.
@@ -3175,7 +3175,7 @@ For NCA-AIIO, just remember:
 
 ---
 
-### 3.3 Memory Hierarchy (Simple View)
+### 3.3 Memory Hierarchy
 
 On a GPU, there are several types of memory:
 
@@ -3438,7 +3438,7 @@ Here is how CUDA shows up in each phase:
 
 
 
-# 🧠 NVIDIA Dynamo & Triton — Deep Dive Notes (NCA-AIIO)
+# 🧠 NVIDIA Dynamo & Triton 
 
 This section covers the next-generation inference-serving layer for AI: Triton Inference Server and its successor NVIDIA Dynamo.  
 You’ll learn what they are, how they work, how they differ, and why they matter for AI infrastructure.
@@ -4392,7 +4392,7 @@ Intelligent Video Analytics (IVA) via the NVIDIA Metropolis platform enables rea
 
 ---
 
-# 🧩 Multi-Instance GPU (MIG) — In-Depth Notes
+# 🧩 Multi-Instance GPU (MIG) 
 
 Modern GPU hardware is incredibly powerful, but many workloads—especially AI inference or smaller training jobs—don’t fully utilize that power.  
 MIG is an NVIDIA technology that lets a single physical GPU act like several smaller GPUs at once.  
@@ -4504,7 +4504,7 @@ This section explains what MIG is, how it works, why it matters and how it affec
 
 ---
 
-# 🖥️ NVIDIA A100 Tensor Core GPU — Detailed Specifications & Infrastructure Notes (NCA-AIIO)
+# 🖥️ NVIDIA A100 Tensor Core GPU 
 
 The NVIDIA A100 is a flagship data-center GPU designed for AI, high-performance computing (HPC), and large-scale training/inference workloads.  
 This section breaks down its architecture, features, and what they mean for AI infrastructure and operations.
@@ -4604,7 +4604,7 @@ The NVIDIA A100 Tensor Core GPU is a foundational component of modern AI infrast
 
 ## NCCL – NVIDIA Collective Communications Library (pronounced “Nickel”)
 
-### 1. What NCCL is (simple definition)
+### 1. What NCCL is 
 
 NCCL is NVIDIA’s **GPU communication library**.  
 It gives you high-performance **collective** and **point-to-point** communication between GPUs, both:
@@ -4650,7 +4650,7 @@ NCCL is **topology-aware**:
 
 ---
 
-### 4. Key properties to remember (exam-style)
+### 4. Key properties to remember 
 
 - **High performance**
   - Optimized for NVIDIA GPUs and modern interconnects (NVLink, NVSwitch, InfiniBand, RoCE, PCIe).
@@ -4686,7 +4686,7 @@ If the exam asks “which component provides high-bandwidth GPU collective commu
 
 ## GPT-3 – A 175 Billion Parameter Language Model (OpenAI + NVIDIA)
 
-### 1. What GPT-3 is (simple definition)
+### 1. What GPT-3 is 
 
 GPT-3 is a state-of-the-art language model developed by OpenAI.  
 It uses a Transformer-based architecture and contains **175 billion parameters**.  
@@ -4823,7 +4823,7 @@ Supports NVLink 2-way bridging for multi-GPU setups; suitable for workstations i
 
 ## MPI Solutions for GPUs – NVIDIA Developer
 
-### 1. What this is (simple definition)  
+### 1. What this is 
 MPI (Message Passing Interface) is a standardized API for communicating data (via messages) between distributed processes in high-performance computing (HPC) environments. The “MPI Solutions for GPUs” article from NVIDIA covers how MPI can be used **together with GPUs** (and CUDA) to build scalable multi-node, multi-GPU applications. 
 
 ---
@@ -4969,7 +4969,7 @@ Before rollout: verify server hardware is validated with NVIDIA vGPU certified s
 
 ## NVIDIA AI Enterprise – End-to-end Cloud-Native AI Software Platform
 
-### 1. What it is (simple definition)  
+### 1. What it is
 NVIDIA AI Enterprise is a cloud-native suite of software tools, libraries and frameworks that accelerate and simplify the development, deployment, and scaling of AI applications. 
 It spans from AI development (data science, model training) to production deployment (inference, MLOps) and supports deployment across cloud, on-premises data centers, and edge environments.
 

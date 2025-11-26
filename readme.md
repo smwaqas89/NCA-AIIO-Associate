@@ -5090,15 +5090,6 @@ Key components include:
 | GPUDirect Storage          | NVMe/NVMe-oF ↔ GPU memory, bypassing host memory.     |
 | GPUDirect for Video        | Frame-based I/O devices directly into/from GPU memory.|
 
----
-
-### 🔹 4.0 Typical Deployment Flow  
-
-# Kernel / driver configuration to enable RDMA memory windows
-# Register GPU memory for RDMA access
-# Use MPI / RDMA library to pass GPU pointers directly
-# For storage: install GDS library, configure NVMe driver bypass path
-
 
 ---
 

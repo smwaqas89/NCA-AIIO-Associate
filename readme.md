@@ -5442,6 +5442,38 @@ By deploying BlueField-2 DPU you:
 ---
 
 
+## 🧩 NVIDIA MPS (Multi-Process Service)
+
+NVIDIA MPS allows multiple CUDA applications to share a single GPU by using a **shared CUDA context**, improving concurrency and utilization for workloads that launch **many small kernels**.
+
+### 🔧 What MPS Improves
+- **Higher concurrency:** multiple kernels from different processes can run in parallel.
+- **Lower context-switch overhead:** all clients share a unified CUDA context.
+- **Better utilization:** ideal when workloads underutilize the GPU individually.
+- **Great for microservices:** especially low-batch inference with small kernels.
+
+### ⚠️ Limitations of MPS
+- **No strong isolation:** unlike MIG, all clients share the same CUDA context.
+- **No resource partitioning:** one client can still dominate SMs.
+- **No preemption:** long-running kernels can block small kernels → P99 latency spikes.
+- **Not secure for multi-tenant environments:** use MIG in those cases.
+- **Memory is fully shared:** not partitioned between clients.
+
+### 📌 When to Use MPS
+Use MPS when:
+- Workloads belong to the **same team or trusted environment**.
+- Applications launch **many small kernels**.
+- You want to reduce context-switch cost.
+- MIG cannot be used because the workload needs **full shared memory across SMs**.
+
+### 📌 When *Not* to Use MPS
+Avoid MPS when:
+- You need **hard isolation** → use MIG.
+- Workloads require **predictable latency**.
+- There are long-running kernels mixed with small kernels.
+- You run **multi-tenant inference** and require predictable QoS.
+
+---
 
 
 

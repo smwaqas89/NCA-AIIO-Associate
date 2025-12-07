@@ -5475,6 +5475,58 @@ Avoid MPS when:
 
 ---
 
+## 🚀 NVIDIA NIMs (NVIDIA Inference Microservices)
+
+NVIDIA NIMs are pre-built, containerized AI microservices that package fully optimized models 
+(LLMs, vision, speech, embeddings) with TensorRT-LLM, Triton Inference Server, and all required runtimes.
+They expose OpenAI-compatible REST/gRPC APIs for easy, production-ready deployment on any NVIDIA GPU platform.
+
+### Key Features
+- Pre-optimized, ready-to-run AI model containers
+- Support for LLM, vision, speech, multimodal, and embedding workloads
+- Standard API endpoints (e.g., /v1/chat/completions)
+- Deployable on bare metal, VMware, Kubernetes, or any cloud
+- Built on NVIDIA Triton + TensorRT-LLM for high throughput and low latency
+
+---
+
+# Power & Cooling Requirements in Data Center
+
+AI infrastructure (GPUs, DPUs, NVSwitch, dense compute racks) consumes significant power and generates high heat.  
+Proper electrical and thermal design is critical.
+
+**Power Considerations**
+- Rack density typically ranges from **20–50 kW**, with some AI racks exceeding **100 kW**
+- **Redundant A/B power feeds** for high availability
+- **UPS systems** with battery backup for failover
+- **Intelligent PDUs** for real-time power monitoring and load balancing
+
+**Cooling Considerations**
+- **Liquid cooling** solutions: rear-door heat exchangers or direct liquid cooling (DLC)
+- **Hot/cold aisle containment** to improve airflow efficiency
+- **Airflow management** to prevent hotspots and maintain consistent temperatures
+
+---
+
+### NVIDIA BMC (Baseboard Management Controller)
+
+NVIDIA BMC is the out-of-band hardware management controller used in DGX, OVX, and HGX-based servers.  
+It provides remote control and monitoring of the entire system, independent of the operating system.
+
+**Key Features**
+- Remote power control (on/off/reset)
+- Hardware health monitoring (GPUs, CPUs, fans, PSUs, thermals)
+- GPU temperature and power telemetry
+- Firmware and component inventory management
+- Redfish/IPMI support for automation and integration
+- Remote console access for troubleshooting
+
+Used for data center-scale AI infrastructure where constant monitoring, thermal management,  
+and remote administration are critical.
+
+---
+
+
 
 
 

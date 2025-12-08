@@ -5526,54 +5526,83 @@ and remote administration are critical.
 
 ---
 
-| Category | Framework / Platform | What It Does | Used In |
-|----------|----------------------|--------------|---------|
-| **Simulation Platforms** | Omniverse | Digital twins, 3D simulations | Industrial, robotics |
-|  | Isaac Sim | Robotics simulation | Robotics |
-|  | DRIVE Sim | Autonomous driving simulation | Automotive |
-|  | Modulus | Physics simulation (PINNs) | Engineering, climate |
-|  | cuOpt | Route optimization simulation | Logistics |
+# NVIDIA Frameworks Overview
 
-| **Healthcare Platforms** | Clara | Medical imaging, genomics, surgical AI | Healthcare |
-|  | Holoscan | Real-time medical device pipelines | Surgery |
-|  | MONAI | Medical imaging deep learning | Radiology |
-
-| **Cybersecurity** | Morpheus | AI cybersecurity pipeline | SOC operations |
-|  | DOCA | DPU-accelerated networking & security | Data centers |
-
-| **Telecom / Wireless** | Aerial | 5G vRAN acceleration & simulation | Telecom |
-|  | Sionna | Wireless communication simulation | RF research |
-
-| **Robotics** | Isaac SDK | Robotics application framework | Robotics |
-|  | Isaac ROS | ROS2 GPU acceleration | SLAM, perception |
-
-| **Media / Speech / Video** | Maxine | Video/audio AI, avatars | Streaming, conferencing |
-|  | Riva / NeMo | Speech + NLP models | Chatbots, enterprise AI |
-
-| **Vision / Smart Cities** | Metropolis | Video analytics platform | Retail, surveillance |
-|  | DeepStream | Stream processing for vision AI | Cameras, IoT |
-
-| **Recommender Systems** | **Merlin** | End-to-end recommender system framework | Retail, ads, e-commerce |
-|  | ├─ NVTabular | GPU-accelerated feature engineering | ETL pipelines |
-|  | ├─ HugeCTR | Recommender system training | CTR ranking |
-|  | ├─ Transformers4Rec | Transformer-based recommenders | Personalization |
-|  | └─ Merlin Systems | Pipeline orchestration | Deployment |
-
-| **Data Science** | RAPIDS | GPU-accelerated dataframes, SQL, ML | Finance, analytics |
-|  | NVTabular | (Also part of Merlin) | ETL |
-
-| **LLM / AI Platforms** | NeMo | LLM training framework | NLP |
-|  | TensorRT / TensorRT-LLM | Model optimization for inference | LLM, vision |
-|  | Triton Inference Server | Deploy AI at scale | Cloud & DC |
-|  | NIMs | Pre-built AI microservices | Enterprise inference |
-
-| **GPU / DC Ops** | DCGM | GPU monitoring | Data centers |
-|  | MIG | GPU partitioning | Multi-tenant clusters |
-|  | MPS | Multi-process sharing | HPC |
+| Category                    | Framework / Platform     | Description                                                     | Industry / Use Cases                                   |
+|-----------------------------|---------------------------|-----------------------------------------------------------------|--------------------------------------------------------|
+| **Simulation Platforms**    | **Omniverse**             | Digital twins, 3D simulation, physics-based environments        | Industrial, Robotics, AEC, Factories                   |
+|                             | **Isaac Sim**             | Robotics simulation, training, RL environments                  | Robotics, Automation                                   |
+|                             | **DRIVE Sim**             | Autonomous vehicle & sensor simulation                          | Automotive / Self-driving                              |
+|                             | **Modulus**               | Physics-informed neural network simulation (PINNs)              | Climate, Engineering, Energy                           |
+|                             | **cuOpt**                 | Route optimization & logistics simulation                       | Supply Chain, Delivery Fleets                          |
+| **Healthcare Platforms**    | **Clara**                 | Medical imaging, genomics, surgical AI                          | Healthcare, Radiology                                  |
+|                             | **Holoscan**              | Real-time medical device sensor pipelines                       | Surgery, Medical Robotics                              |
+|                             | **MONAI**                 | Deep learning for medical imaging                               | Radiology, Healthcare AI                               |
+| **Cybersecurity**           | **Morpheus**              | AI cybersecurity pipeline & log analytics                       | SOC, Threat Detection                                  |
+|                             | **DOCA**                  | DPU programming for security, networking acceleration            | Data Centers, Zero-trust Security                      |
+| **Telecom / Wireless**      | **Aerial**                | 5G vRAN acceleration & simulation                               | Telecom Operators, 5G RAN                              |
+|                             | **Sionna**                | Wireless communication & AI-based channel simulation            | RF Research, Wireless AI                               |
+| **Robotics**                | **Isaac SDK**             | Robotics application framework                                   | Robots, Automation Systems                              |
+|                             | **Isaac ROS**             | GPU-accelerated ROS2 packages                                   | SLAM, Perception, Vision                               |
+| **Media / Speech / Video**  | **Maxine**                | AI video/audio enhancement, avatars, conferencing tools         | Streaming, Communications                              |
+|                             | **Riva / NeMo**           | ASR, TTS, NLP, LLM model training                                | Enterprise AI, Chatbots                                |
+| **Vision / Smart Cities**   | **Metropolis**            | Video analytics & real-time perception                          | Retail, Surveillance, Traffic Management               |
+|                             | **DeepStream**            | High-throughput stream processing for computer vision           | Smart Cameras, IoT Analytics                           |
+| **Recommender Systems**     | **Merlin**                | End-to-end framework for recommender systems                    | E-commerce, Ads, Retail                                |
+|                             | ├─ **NVTabular**          | GPU-accelerated feature engineering                             | ETL Pipelines, RecSys Data Prep                        |
+|                             | ├─ **HugeCTR**            | High-performance recommender system training                     | CTR Ranking, Large-scale RecSys Models                 |
+|                             | ├─ **Transformers4Rec**   | Transformer-based recommendation models                          | Personalized Recommendations                           |
+|                             | └─ **Merlin Systems**     | Pipeline orchestration & deployment                             | Production RecSys Pipelines                            |
+| **Data Science**            | **RAPIDS**                | GPU-accelerated DataFrame, SQL, ML (Pandas-like)                | Finance, Analytics, Big Data                           |
+|                             | **NVTabular**             | (Also part of Merlin) Feature engineering at scale              | Recommender Systems, ETL                               |
+| **LLM / AI Frameworks**     | **NeMo**                  | Training & fine-tuning large language models                    | NLP, Chatbots, Enterprise AI                           |
+|                             | **TensorRT / TensorRT-LLM** | Optimizes AI models for high-performance inference             | LLMs, Vision, Speech                                   |
+|                             | **Triton Inference Server** | Large-scale deployment & serving of AI models                  | Cloud, Data Centers                                    |
+|                             | **NIMs**                  | Pre-built inference microservices (LLM, vision, speech APIs)    | Enterprise AI, On-prem/Cloud Inference                 |
+| **GPU / Data Center Ops**   | **DCGM**                  | GPU health monitoring & telemetry                               | Data Centers, Clusters                                 |
+|                             | **MIG**                   | Multi-instance GPU partitioning                                 | Multi-tenant workloads                                 |
+|                             | **MPS**                   | Multi-process GPU sharing                                       | HPC, Shared Compute                                    |
 
 
 ----
 
+# ⚡ SLURM 
+
+SLURM (**Simple Linux Utility for Resource Management**) is an open-source workload manager used to schedule and run jobs on large compute clusters, HPC systems, and GPU data centers. It is one of the most widely used schedulers in supercomputers and AI training clusters.
+
+---
+
+## 🔧 What SLURM Does
+SLURM manages how cluster resources are used:
+
+- Schedules jobs into queues
+- Allocates CPUs, GPUs, RAM, and nodes
+- Launches and monitors jobs
+- Handles multi-node distributed training
+- Ensures fair sharing of resources
+- Tracks job status and usage
+
+---
+
+## 🧩 Core Components
+
+| Component     | Role |
+|---------------|------|
+| **slurmctld** | Central controller that schedules jobs |
+| **slurmd**    | Runs on each compute node and executes jobs |
+| **slurmdbd**  | Optional accounting database for job history |
+| **Partitions** | Logical groups of nodes (similar to queues) |
+
+---
+
+## 🔥 Why SLURM Is Important for AI & HPC
+- Allocates multiple GPUs or nodes to a job  
+- Supports distributed training (MPI, NCCL, PyTorch, TensorFlow)  
+- Maximizes cluster utilization  
+- Provides priorities, job arrays, and dependencies  
+- Standard on NVIDIA DGX SuperPODs and research clusters  
+
+---
 
 
 

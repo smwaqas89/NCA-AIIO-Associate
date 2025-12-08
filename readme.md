@@ -5528,6 +5528,8 @@ and remote administration are critical.
 
 # NVIDIA Frameworks Overview
 
+# NVIDIA Frameworks Overview
+
 | Category                    | Framework / Platform     | Description                                                     | Industry / Use Cases                                   |
 |-----------------------------|---------------------------|-----------------------------------------------------------------|--------------------------------------------------------|
 | **Simulation Platforms**    | **Omniverse**             | Digital twins, 3D simulation, physics-based environments        | Industrial, Robotics, AEC, Factories                   |

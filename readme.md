@@ -5526,7 +5526,53 @@ and remote administration are critical.
 
 ---
 
+| Category | Framework / Platform | What It Does | Used In |
+|----------|----------------------|--------------|---------|
+| **Simulation Platforms** | Omniverse | Digital twins, 3D simulations | Industrial, robotics |
+|  | Isaac Sim | Robotics simulation | Robotics |
+|  | DRIVE Sim | Autonomous driving simulation | Automotive |
+|  | Modulus | Physics simulation (PINNs) | Engineering, climate |
+|  | cuOpt | Route optimization simulation | Logistics |
 
+| **Healthcare Platforms** | Clara | Medical imaging, genomics, surgical AI | Healthcare |
+|  | Holoscan | Real-time medical device pipelines | Surgery |
+|  | MONAI | Medical imaging deep learning | Radiology |
+
+| **Cybersecurity** | Morpheus | AI cybersecurity pipeline | SOC operations |
+|  | DOCA | DPU-accelerated networking & security | Data centers |
+
+| **Telecom / Wireless** | Aerial | 5G vRAN acceleration & simulation | Telecom |
+|  | Sionna | Wireless communication simulation | RF research |
+
+| **Robotics** | Isaac SDK | Robotics application framework | Robotics |
+|  | Isaac ROS | ROS2 GPU acceleration | SLAM, perception |
+
+| **Media / Speech / Video** | Maxine | Video/audio AI, avatars | Streaming, conferencing |
+|  | Riva / NeMo | Speech + NLP models | Chatbots, enterprise AI |
+
+| **Vision / Smart Cities** | Metropolis | Video analytics platform | Retail, surveillance |
+|  | DeepStream | Stream processing for vision AI | Cameras, IoT |
+
+| **Recommender Systems** | **Merlin** | End-to-end recommender system framework | Retail, ads, e-commerce |
+|  | ├─ NVTabular | GPU-accelerated feature engineering | ETL pipelines |
+|  | ├─ HugeCTR | Recommender system training | CTR ranking |
+|  | ├─ Transformers4Rec | Transformer-based recommenders | Personalization |
+|  | └─ Merlin Systems | Pipeline orchestration | Deployment |
+
+| **Data Science** | RAPIDS | GPU-accelerated dataframes, SQL, ML | Finance, analytics |
+|  | NVTabular | (Also part of Merlin) | ETL |
+
+| **LLM / AI Platforms** | NeMo | LLM training framework | NLP |
+|  | TensorRT / TensorRT-LLM | Model optimization for inference | LLM, vision |
+|  | Triton Inference Server | Deploy AI at scale | Cloud & DC |
+|  | NIMs | Pre-built AI microservices | Enterprise inference |
+
+| **GPU / DC Ops** | DCGM | GPU monitoring | Data centers |
+|  | MIG | GPU partitioning | Multi-tenant clusters |
+|  | MPS | Multi-process sharing | HPC |
+
+
+----
 
 
 
